@@ -133,6 +133,15 @@ def test_simple_remaining_matched_out():
     print(order_manager.get_order_status(id_b_1))
     print(order_manager.get_order_status(id_s_0))
 
+def test_simple_imcoming_sweepingout():
+    order_manager = OrderManager()
+    id_b_0 = order_manager.add_order("GOOG", "buy", 100, 10)
+    id_b_1 = order_manager.add_order("GOOG", "buy", 90, 20)
+    id_s_0 = order_manager.add_order("GOOG", "sell", 80, 40)
+    print(order_manager.get_order_status(id_b_0))
+    print(order_manager.get_order_status(id_b_1))
+    print(order_manager.get_order_status(id_s_0))
+
 def test_cancel_order():
     order_manager = OrderManager()
     id_b_0 = order_manager.add_order("GOOG", "buy", 100, 10)
@@ -147,7 +156,8 @@ if __name__ == "__main__":
     #test_simple_nomatch()
     #test_simple_incoming_matched_out()
     #test_simple_remaining_matched_out()
-    test_cancel_order()
+    test_simple_imcoming_sweepingout()
+    #test_cancel_order()
 
 
 
